@@ -22,7 +22,6 @@ const Modal: React.FC<{ isModalOpen: boolean; onClickCloseModal: (item: boolean)
 			[values.questionName]: {
 				label: values.questionName,
 				type: values.questionType,
-				required: true,
 			}
 		}
 		if (values.questionType !== 'text') {
@@ -32,7 +31,6 @@ const Modal: React.FC<{ isModalOpen: boolean; onClickCloseModal: (item: boolean)
 					label: values.questionName,
 					type: values.questionType,
 					options: options,
-					required: true,
 				}	
 			}
 		}
@@ -49,9 +47,7 @@ const Modal: React.FC<{ isModalOpen: boolean; onClickCloseModal: (item: boolean)
 	return (
 		<div className={`modal ${isModalOpen ? 'show' : ''}`}>
 			<div className='modal-wrapper'>
-				<span onClick={() => onClickCloseModal(false)} className='close'>
-					&times;
-				</span>
+				<span onClick={() => onClickCloseModal(false)} className='close'>&times;</span>
 
 				<Formik
 					enableReinitialize={true}
@@ -104,8 +100,7 @@ const Modal: React.FC<{ isModalOpen: boolean; onClickCloseModal: (item: boolean)
 								)}
 							</>}
 							<div className='button-wrapper'>
-								<button type='submit'>Create Form</button>
-								<button className='cancel-button' type='button' onClick={() => setIsQuestion(false)}>Cancel</button>
+								<button type='submit' disabled={values.formName === '' || !isQuestion}>Create Form</button>
 							</div>
 						</form>
 					)}

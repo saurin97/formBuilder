@@ -20,8 +20,6 @@ const Forms: React.FC<RouteComponentProps> = (props) => {
 	const formBody = useMemo(() => Object.keys(formDetail.formBody).map((key) => formDetail.formBody[key]), [formDetail.formBody]);
 	const [formResponses, setFormResponses] = useState(formDetail.responses);
 
-	console.log(props);
-	
 	const onSubmit = (values: { [key: string]: any; }) => {
 		setFormResponses([...formResponses, values]);
 		const index = forms.findIndex((item) => item.formUrl === params.id);
@@ -53,9 +51,8 @@ const Forms: React.FC<RouteComponentProps> = (props) => {
 						resetForm();
 					}}
 				>
-					{({ handleSubmit, values, errors }) => (
+					{({ handleSubmit }) => (
 						<form onSubmit={handleSubmit}>
-							{console.log(errors,'values')}
 							{formBody.map((formItem, index) => (
 								<Fragment key={index}>
 									<p className='question--name'><span>Question.</span> {formItem.label}</p>

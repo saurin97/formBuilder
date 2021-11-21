@@ -22,7 +22,6 @@ const reducer = (
 ): FormState => {
 	switch (action.type) {
 		case SET_FORM_DATA:
-			console.log('action.payload.forms', action.payload.forms)
 			return {
 				...state,
 				forms: action.payload.forms

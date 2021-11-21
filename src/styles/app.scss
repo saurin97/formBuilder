@@ -69,11 +69,6 @@ a {
 	background-color: blue;
 	height: 32px;
 	width: 140px;
-
-	&:disabled {
-		opacity: 0.8;
-		cursor: not-allowed;
-	}
 }
 
 .cancel-button {
@@ -88,6 +83,11 @@ button {
 	border: none;
 	cursor: pointer;
 	transition: 0.5s all;
+
+	&:disabled {
+		opacity: 0.8;
+		cursor: not-allowed;
+	}
 }
 
 input:focus {
